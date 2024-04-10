@@ -1,11 +1,4 @@
-
-   __ __ ________   ____     ____               _           __     _____      
-  / // /|__  /__ \ / __ \   / __ \_________    (_)__  _____/ /_   |__  /____ _
- / // /_ /_ <__/ // / / /  / /_/ / ___/ __ \  / / _ \/ ___/ __/    /_ </ __ `/
-/__  __/__/ / __// /_/ /  / ____/ /  / /_/ / / /  __/ /__/ /_    ___/ / /_/ / 
-  /_/ /____/____/\____/  /_/   /_/   \____/_/ /\___/\___/\__/   /____/\__,_/  
-                                         /___/                                
-
+# 4320 Project 3a Documentation
 
 ## Description
 This project involves extending the previously developed software application from Project 3 to be accessible via the web. It utilizes Docker for containerization and Flask for creating web applications. The Flask application will gather user input from a web form and populate an option box with stock symbols.
