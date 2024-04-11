@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chart Form</title>
+</head>
+<body>
+    <h1>Select Options to Generate a Chart</h1>
+    <form action="/generate_chart" method="POST" id="chart_form">
+        <label for="stock_symbol">Stock Symbol:</label>
+        <select id="stock_symbol" name="stock_symbol" required>
+
+        </select><br><br>
+        
+        <label for="start_date">Start Date (YYYY-MM-DD):</label>
+        <input type="date" id="start_date" name="start_date" required><br><br>
+        
+        <label for="end_date">End Date (YYYY-MM-DD):</label>
+        <input type="date" id="end_date" name="end_date" required><br><br>
+        
+        <label for="time_series">Time Series:</label>
+        <select id="time_series" name="time_series">
+            <option value="1">5 Minutes</option>
+            <option value="2">Daily</option>
+            <option value="3">Weekly</option>
+            <option value="4">Monthly</option>
+        </select><br><br>
+        
+        <label for="chart_type">Chart Type:</label>
+        <select id="chart_type" name="chart_type">
+            <option value="1">Bar Chart</option>
+            <option value="2">Line Chart</option>
+        </select><br><br>
+        
+        <button type="submit">Generate Chart</button>
+    </form>
+
+    <script>
+        function populateStocks() {
+            fetch('/static/stocks.csv')
+            .then(response => response.text())
+            .then(data => {
+                const stockSymbols = data.trim().split('\n');
+                const stockSymbolDropdown = document.getElementById('stock_symbol');
+                stockSymbols.forEach(symbol => {
+                    const option = document.createElement('option');
+                    option.value = symbol;
+                    option.text = symbol;
+                    stockSymbolDropdown.appendChild(option);
+                });
+            });
+        }
+
+        window.onload = populateStocks;
+    </script>
+</body>
+</html>
